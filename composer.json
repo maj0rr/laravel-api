@@ -1,0 +1,21 @@
+{
+    "name": "chriha/laravel-api",
+    "description": "Components to build an API with Laravel",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christopher Hartmann",
+            "email": "dev@chriha.de"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "symfony/http-foundation": "~3.2",
+        "illuminate/pagination": "~5.4",
+        "illuminate/routing": "~5.4",
+        "illuminate/support": "~5.4"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
