@@ -16,6 +16,11 @@
         "illuminate/routing": "~5.4",
         "illuminate/support": "~5.4"
     },
+    "autoload": {
+        "psr-4": {
+            "Chriha\\LaravelApi\\": "src/"
+        }
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
