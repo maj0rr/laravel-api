@@ -67,13 +67,20 @@ class Controller extends BaseController
      */
     public function respondWithPagination( array $data, LengthAwarePaginator $paginator ) : Response
     {
+        if ( $paginator )
+        {
+            $paginator->appends( $this->request->all() );
+        }
+
         return $this->setStatusCode( Response::HTTP_OK )
             ->respond( [
                 'meta' => [
-                    'total'   => $paginator->total(),
-                    'pages'   => ceil( $paginator->total() / $paginator->perPage() ),
-                    'current' => $paginator->currentPage(),
-                    'limit'   => $paginator->perPage(),
+                    'total'    => $paginator->total(),
+                    'pages'    => ceil( $paginator->total() / $paginator->perPage() ),
+                    'current'  => $paginator->currentPage(),
+                    'limit'    => $paginator->perPage(),
+                    'next'     => $paginator->nextPageUrl(),
+                    'previous' => $paginator->previousPageUrl(),
                 ],
                 'data' => $data,
             ] );
