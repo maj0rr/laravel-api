@@ -27,7 +27,7 @@ class Controller extends BaseController
      */
     public function __construct()
     {
-        $this->request = Request::instance();
+        $this->request = \Request::instance();
 
         if ( $this->request->has( 'limit' ) )
         {
