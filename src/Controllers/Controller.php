@@ -19,7 +19,7 @@ class Controller extends BaseController
      * Contains the item per page limit
      * @var int
      */
-    protected $limit = 1000;
+    protected $limit = 100;
 
 
     /**
