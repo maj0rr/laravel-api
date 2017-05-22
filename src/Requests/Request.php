@@ -3,6 +3,7 @@
 namespace Chriha\LaravelApi\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 abstract class Request extends FormRequest
 {
@@ -54,6 +55,18 @@ abstract class Request extends FormRequest
     public function getResource()
     {
         return $this->resource;
+    }
+
+    protected function throwResponseException( $errors ) : void
+    {
+        if ( $this->expectsJson() )
+        {
+            $errors = [
+                'errors' => $errors
+            ];
+        }
+
+        throw new HttpResponseException( $this->response( $errors ) );
     }
 
 }
