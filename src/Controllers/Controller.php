@@ -42,7 +42,7 @@ class Controller extends BaseController
      * @param array $headers Headers to use for the response
      * @return Response
      */
-    public function respond( array $data, array $headers = [] ) : Response
+    public function respond( array $data, array $headers = [] )
     {
         return response()->json( $data, $this->getStatusCode(), $headers );
     }
@@ -53,7 +53,7 @@ class Controller extends BaseController
      * @param array $data Message to show
      * @return Response
      */
-    public function respondData( array $data ) : Response
+    public function respondData( array $data )
     {
         return $this->setStatusCode( Response::HTTP_OK )->respond( [ 'data' => $data ] );
     }
@@ -65,7 +65,7 @@ class Controller extends BaseController
      * @param LengthAwarePaginator $paginator
      * @return Response
      */
-    public function respondWithPagination( array $data, LengthAwarePaginator $paginator ) : Response
+    public function respondWithPagination( array $data, LengthAwarePaginator $paginator )
     {
         if ( $paginator )
         {
@@ -93,7 +93,7 @@ class Controller extends BaseController
      * @param array $meta The paginator object
      * @return Response
      */
-    public function respondWithMeta( array $data, array $meta = [] ) : Response
+    public function respondWithMeta( array $data, array $meta = [] )
     {
         return $this->respond( [
             'meta' => $meta,
@@ -107,7 +107,7 @@ class Controller extends BaseController
      * @param string|array $message Message to show
      * @return Response
      */
-    public function respondWithError( $message ) : Response
+    public function respondWithError( $message )
     {
         $messages = ! is_string( $message ) ? $message : [ $message ];
 
@@ -121,7 +121,7 @@ class Controller extends BaseController
      * @param array $data
      * @return Response
      */
-    public function respondWithMessage( string $message, array $data = null ) : Response
+    public function respondWithMessage( $message, array $data = null )
     {
         if ( ! is_null( $data ) )
         {
@@ -140,7 +140,7 @@ class Controller extends BaseController
      * @param string $message Message to show for this error
      * @return Response
      */
-    public function respondNotFound( string $message = 'Resource not found.' ) : Response
+    public function respondNotFound( $message = 'Resource not found.' )
     {
         return $this->setStatusCode( Response::HTTP_NOT_FOUND )->respond( [ 'errors' => [ $message ] ] );
     }
@@ -151,7 +151,7 @@ class Controller extends BaseController
      * @param string $message Message to show for this error
      * @return Response
      */
-    public function respondNoSubscription( string $message = 'This account has no valid subscription.' ) : Response
+    public function respondNoSubscription( $message = 'This account has no valid subscription.' )
     {
         return $this->setStatusCode( Response::HTTP_FORBIDDEN )->respond( [ 'errors' => [ $message ] ] );
     }
@@ -162,7 +162,7 @@ class Controller extends BaseController
      * @param string $message Message to show for this error
      * @return Response
      */
-    public function respondInternalError( string $message = 'Internal error.' ) : Response
+    public function respondInternalError( $message = 'Internal error.' )
     {
         return $this->setStatusCode( Response::HTTP_INTERNAL_SERVER_ERROR )->respond( [ 'errors' => [ $message ] ] );
     }
@@ -173,7 +173,7 @@ class Controller extends BaseController
      * @param string $message Message to return
      * @return Response
      */
-    public function respondUnprocessableEntity( string $message = 'Unprocessable entity.' ) : Response
+    public function respondUnprocessableEntity( $message = 'Unprocessable entity.' )
     {
         return $this->setStatusCode( Response::HTTP_UNPROCESSABLE_ENTITY )->respond( [ 'errors' => [ $message ] ] );
     }
@@ -184,7 +184,7 @@ class Controller extends BaseController
      * @param string $message Message to return
      * @return Response
      */
-    public function respondUnauthorized( string $message = 'Unauthorized access.' ) : Response
+    public function respondUnauthorized( $message = 'Unauthorized access.' )
     {
         return $this->setStatusCode( Response::HTTP_UNAUTHORIZED )->respond( [ 'errors' => [ $message ] ] );
     }
@@ -195,7 +195,7 @@ class Controller extends BaseController
      * @param array $data
      * @return Response
      */
-    public function respondCreated( array $data = null ) : Response
+    public function respondCreated( array $data = null )
     {
         return $this->setStatusCode( Response::HTTP_CREATED )->respondWithMessage( 'Resource created successfully.', $data );
     }
@@ -206,7 +206,7 @@ class Controller extends BaseController
      * @param  array $data
      * @return Response
      */
-    public function respondUpdated( array $data = null ) : Response
+    public function respondUpdated( array $data = null )
     {
         return $this->setStatusCode( Response::HTTP_OK )->respondWithMessage( 'Resource updated successfully.', $data );
     }
@@ -216,7 +216,7 @@ class Controller extends BaseController
      *
      * @return Response
      */
-    public function respondDeleted() : Response
+    public function respondDeleted()
     {
         return $this->setStatusCode( Response::HTTP_OK )->respondWithMessage( 'Resource deleted successfully.' );
     }
@@ -226,7 +226,7 @@ class Controller extends BaseController
      *
      * @return int
      */
-    public function getStatusCode() : int
+    public function getStatusCode()
     {
         return $this->statusCode;
     }
@@ -237,7 +237,7 @@ class Controller extends BaseController
      * @param int $statusCode HTTP-Status code to set
      * @return self
      */
-    public function setStatusCode( int $statusCode ) : self
+    public function setStatusCode( $statusCode )
     {
         $this->statusCode = $statusCode;
 

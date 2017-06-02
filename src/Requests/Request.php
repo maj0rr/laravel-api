@@ -35,7 +35,7 @@ abstract class Request extends FormRequest
      *
      * @return bool
      */
-    public function authorize() : bool
+    public function authorize()
     {
         return true;
     }
@@ -45,7 +45,7 @@ abstract class Request extends FormRequest
      *
      * @return array
      */
-    abstract public function rules() : array;
+    abstract public function rules();
 
     /**
      * Return the requested resource
@@ -57,7 +57,7 @@ abstract class Request extends FormRequest
         return $this->resource;
     }
 
-    protected function throwResponseException( $errors ) : void
+    protected function throwResponseException( $errors )
     {
         if ( $this->expectsJson() )
         {
