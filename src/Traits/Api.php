@@ -107,7 +107,8 @@ trait Api
     {
         $messages = ! is_string( $message ) ? $message : [ $message ];
 
-        return $this->setStatusCode( Response::HTTP_BAD_REQUEST )->respond( [ 'errors' => $messages ] );
+        return $this->setStatusCode( Response::HTTP_BAD_REQUEST )
+            ->respond( [ 'errors' => $messages ] );
     }
 
     /**
@@ -138,7 +139,8 @@ trait Api
      */
     public function respondNotFound( $message = 'Resource not found.' )
     {
-        return $this->setStatusCode( Response::HTTP_NOT_FOUND )->respond( [ 'errors' => [ $message ] ] );
+        return $this->setStatusCode( Response::HTTP_NOT_FOUND )
+            ->respond( [ 'errors' => [ $message ] ] );
     }
 
     /**
@@ -149,7 +151,8 @@ trait Api
      */
     public function respondNoSubscription( $message = 'This account has no valid subscription.' )
     {
-        return $this->setStatusCode( Response::HTTP_FORBIDDEN )->respond( [ 'errors' => [ $message ] ] );
+        return $this->setStatusCode( Response::HTTP_FORBIDDEN )
+            ->respond( [ 'errors' => [ $message ] ] );
     }
 
     /**
@@ -160,7 +163,8 @@ trait Api
      */
     public function respondInternalError( $message = 'Internal error.' )
     {
-        return $this->setStatusCode( Response::HTTP_INTERNAL_SERVER_ERROR )->respond( [ 'errors' => [ $message ] ] );
+        return $this->setStatusCode( Response::HTTP_INTERNAL_SERVER_ERROR )
+            ->respond( [ 'errors' => [ $message ] ] );
     }
 
     /**
@@ -171,7 +175,8 @@ trait Api
      */
     public function respondUnprocessableEntity( $message = 'Unprocessable entity.' )
     {
-        return $this->setStatusCode( Response::HTTP_UNPROCESSABLE_ENTITY )->respond( [ 'errors' => [ $message ] ] );
+        return $this->setStatusCode( Response::HTTP_UNPROCESSABLE_ENTITY )
+            ->respond( [ 'errors' => [ $message ] ] );
     }
 
     /**
@@ -182,7 +187,8 @@ trait Api
      */
     public function respondUnauthorized( $message = 'Unauthorized access.' )
     {
-        return $this->setStatusCode( Response::HTTP_UNAUTHORIZED )->respond( [ 'errors' => [ $message ] ] );
+        return $this->setStatusCode( Response::HTTP_UNAUTHORIZED )
+            ->respond( [ 'errors' => [ $message ] ] );
     }
 
     /**
@@ -193,7 +199,8 @@ trait Api
      */
     public function respondCreated( array $data = null )
     {
-        return $this->setStatusCode( Response::HTTP_CREATED )->respondWithMessage( 'Resource created successfully.', $data );
+        return $this->setStatusCode( Response::HTTP_CREATED )
+            ->respondWithMessage( 'Resource created successfully.', $data );
     }
 
     /**
@@ -204,7 +211,8 @@ trait Api
      */
     public function respondUpdated( array $data = null )
     {
-        return $this->setStatusCode( Response::HTTP_OK )->respondWithMessage( 'Resource updated successfully.', $data );
+        return $this->setStatusCode( Response::HTTP_OK )
+            ->respondWithMessage( 'Resource updated successfully.', $data );
     }
 
     /**
@@ -214,7 +222,8 @@ trait Api
      */
     public function respondDeleted()
     {
-        return $this->setStatusCode( Response::HTTP_OK )->respondWithMessage( 'Resource deleted successfully.' );
+        return $this->setStatusCode( Response::HTTP_OK )
+            ->respondWithMessage( 'Resource deleted successfully.' );
     }
 
     /**
