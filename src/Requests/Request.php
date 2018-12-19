@@ -20,9 +20,9 @@ abstract class Request extends FormRequest
      *
      * @return void
      */
-    public function validate()
+    public function validateResolved()
     {
-        parent::validate();
+        parent::validateResolved();
 
         if ( method_exists( $this, 'handleRequest' ) )
         {
